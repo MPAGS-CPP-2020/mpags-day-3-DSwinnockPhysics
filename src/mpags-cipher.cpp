@@ -9,7 +9,9 @@
 #include "ProcessCommandLine.hpp"
 #include "RunCaesarCipher.hpp"
 #include "CaesarCipher.hpp"
-  
+#include "CipherMode.hpp"
+
+
 // Main function of the mpags-cipher program
 int main(int argc, char* argv[])
 {
@@ -23,7 +25,7 @@ int main(int argc, char* argv[])
  // std::string outputFile {""};
  // std::string cipher_key {""};
  // bool encrypt {true};
- ProgramSettings Program_Settings {false,false,"","","",true};
+ ProgramSettings Program_Settings {false,false,"","","",CipherMode::Encrypt};
 
   // Process command line arguments
   bool cmdLineStatus { processCommandLine(cmdLineArgs,Program_Settings) };

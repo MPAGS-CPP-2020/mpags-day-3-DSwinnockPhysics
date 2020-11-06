@@ -74,10 +74,10 @@ ProgramSettings& Program_Settings)
       }
     }
     else if ( args[i] == "--encrypt" ) {
-            Program_Settings.encrypt = true;
+            Program_Settings.encrypt = CipherMode::Encrypt;
     }
     else if ( args[i] == "--decrypt" ) {
-            Program_Settings.encrypt = false;
+            Program_Settings.encrypt = CipherMode::Decrypt;
     }
     else {
       // Have encoutered an unknown flag, output an error message, set the flag
