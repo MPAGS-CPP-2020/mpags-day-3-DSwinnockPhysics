@@ -94,10 +94,11 @@ int main(int argc, char* argv[])
     }
   }
 
-  CaesarCipher caesar_key {Program_Settings.cipher_key};
+  CaesarCipher CaesarCipherToApply {Program_Settings.cipher_key};
 
   // Run the Caesar cipher (using the specified key and encrypt/decrypt flag) on the input text
-  std::string outputText { runCaesarCipher( inputText, caesar_key.cipher_key_, Program_Settings.encrypt ) };
+  //std::string outputText { runCaesarCipher( inputText, caesar_key.cipher_key_, Program_Settings.encrypt ) };
+  std::string outputText { CaesarCipherToApply.applyCipher(inputText, Program_Settings.encrypt) };
 
   // Output the transliterated text
   if (!Program_Settings.outputFile.empty()) {
