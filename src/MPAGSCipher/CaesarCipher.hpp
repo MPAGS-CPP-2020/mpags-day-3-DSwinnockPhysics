@@ -5,7 +5,9 @@
 
 class CaesarCipher {
     public:
-    CaesarCipher(const size_t cipher_key);
+    explicit CaesarCipher(const size_t cipher_key);
+    explicit CaesarCipher(std::string cipher_key);
+
     size_t cipher_key_ {0};
 };
 
