@@ -6,11 +6,11 @@
 #include "CaesarCipher.hpp"
 
 
-CaesarCipher::CaesarCipher(size_t cipher_key)
+CaesarCipher::CaesarCipher(const size_t& cipher_key)
 : cipher_key_{cipher_key}
 {};
 
-CaesarCipher::CaesarCipher(std::string cipher_key)
+CaesarCipher::CaesarCipher(const std::string& cipher_key)
 : cipher_key_{0}
   // We have the key as a string, but the Caesar cipher needs an unsigned long, so we first need to convert it
   // We default to having a key of 0, i.e. no encryption, if no key was provided on the command line
