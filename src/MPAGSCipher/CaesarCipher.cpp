@@ -8,7 +8,7 @@
 
 CaesarCipher::CaesarCipher(const size_t& cipher_key)
 : cipher_key_{cipher_key}
-{};
+{}
 
 CaesarCipher::CaesarCipher(const std::string& cipher_key)
 : cipher_key_{0}
@@ -27,12 +27,21 @@ CaesarCipher::CaesarCipher(const std::string& cipher_key)
     // handled that instead but we only cover exceptions very briefly on the
     // final day of this course - they are a very complex area of C++ that
     // could take an entire course on their own!)
+
+    //Since it's in a constructor now it doesn't let you return out of it if it breaks
+    //So need to check if the conversion can be done
+    bool canConvertToUL {true};
     for ( const auto& elem : cipher_key ) {
       if ( ! std::isdigit(elem) ) {
 	  std::cerr << "[error] cipher key must be an unsigned long integer for Caesar cipher,\n"
 	            << "        the supplied key (" << cipher_key << ") could not be successfully converted" << std::endl;
-	  }
+      canConvertToUL = false; //If a part can't be converted then store that the conversion shouldn't happen
+         break; //Prevents printing the error message multiple times; if it's broken at one point, the conversion can't take place anyway
+      }
     }
+    //Then if the conversion can occur, do it, otherwise just leaves as the default
+    if (canConvertToUL == true) {
     cipher_key_ = std::stoul(cipher_key);
+    }
   }
-};
+}
